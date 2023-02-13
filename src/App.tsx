@@ -2,10 +2,12 @@ import type { Component } from 'solid-js';
 
 import logo from './logo.svg';
 import styles from './App.module.css';
+import ClockApp from './componments/clock';
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
+      <ClockApp />
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
         <p>
