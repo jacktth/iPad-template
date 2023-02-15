@@ -6,6 +6,8 @@ import { Clock } from './componments/apps/clock/Clock';
 const App: Component = () => {
   return (
     <div class={styles.App}>
+        <Clock />
+
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
         <p>
@@ -19,7 +21,6 @@ const App: Component = () => {
         >
           Learn Solid
         </a>
-        <Clock />
       </header>
     </div>
   );

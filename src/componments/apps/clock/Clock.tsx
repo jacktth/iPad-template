@@ -6,6 +6,7 @@ import { Hand } from './Hands';
 import { createAnimationLoop } from './utils';
 import './styles.css';
 import { Circle } from './Circle';
+import { Digtals } from './Digtal';
 
 const getSecondsSinceMidnight = (): number =>
   (Date.now() - new Date().setHours(0, 0, 0, 0)) / 1000;
@@ -18,7 +19,7 @@ type ClockFaceProps = {
 };
 
 export const ClockFace: Component<ClockFaceProps> = (props) => (
-  <svg viewBox="0 0 200 200" width="60%">
+  <svg viewBox="0 0 200 200" width="40%">
     <g transform="translate(100, 100)">
       {/* static */}
       <circle
@@ -29,9 +30,22 @@ export const ClockFace: Component<ClockFaceProps> = (props) => (
       />
       <Lines numberOfLines={60} class="subsecond" length={2} width={1} />
       <Lines numberOfLines={12} class="hour" length={5} width={2} />
+      <Digtals numberOfDigtals={12} />
       {/* dynamic */}
-      <Hand rotate={props.hour} class="hour" length={60} width={4} extended={true}/>
-      <Hand rotate={props.minute} class="minute" length={90} width={4} extended={true}/>
+      <Hand
+        rotate={props.hour}
+        class="hour"
+        length={60}
+        width={4}
+        extended={true}
+      />
+      <Hand
+        rotate={props.minute}
+        class="minute"
+        length={90}
+        width={4}
+        extended={true}
+      />
       <Hand rotate={props.second} class="second" length={80} width={1} />
       <Circle radius={4.5} class="secondcircle" fill="black" />
       <Circle radius={3} class="secondcircle" fill="tomato" />
