@@ -6,6 +6,7 @@ type HandProps = {
   length: number;
   width: number;
   fixed?: boolean;
+  extended?: boolean;
 };
 
 export const Hand: Component<HandProps> = (props) => {
@@ -15,15 +16,31 @@ export const Hand: Component<HandProps> = (props) => {
     'width',
     'fixed',
   ]);
+
+  const extendedLine =
+    props.extended === true ? (
+      <line
+        y1={-15}
+        y2={-local.length}
+        stroke="currentColor"
+        stroke-width={local.width * 1.5}
+        stroke-linecap="round"
+        transform={local.rotate}
+        {...rest}
+      />
+    ) : null;
   return (
-    <line
-      y1={local.fixed ? local.length - 95 : undefined}
-      y2={-(local.fixed ? 95 : local.length)}
-      stroke="currentColor"
-      stroke-width={local.width}
-      stroke-linecap="round"
-      transform={local.rotate}
-      {...rest}
-    />
+    <>
+      <line
+        y1={local.fixed ? local.length - 95 : undefined}
+        y2={-(local.fixed ? 95 : local.length)}
+        stroke="currentColor"
+        stroke-width={local.width}
+        stroke-linecap="round"
+        transform={local.rotate}
+        {...rest}
+      />
+      {extendedLine}
+    </>
   );
 };

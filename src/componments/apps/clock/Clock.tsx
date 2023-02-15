@@ -30,9 +30,9 @@ export const ClockFace: Component<ClockFaceProps> = (props) => (
       <Lines numberOfLines={60} class="subsecond" length={2} width={1} />
       <Lines numberOfLines={12} class="hour" length={5} width={2} />
       {/* dynamic */}
-      <Hand rotate={props.hour} class="hour" length={50} width={4} />
-      <Hand rotate={props.minute} class="minute" length={70} width={3} />
-      <Hand rotate={props.second} class="second" length={80} width={2} />
+      <Hand rotate={props.hour} class="hour" length={60} width={4} extended={true}/>
+      <Hand rotate={props.minute} class="minute" length={90} width={4} extended={true}/>
+      <Hand rotate={props.second} class="second" length={80} width={1} />
       <Circle radius={4.5} class="secondcircle" fill="black" />
       <Circle radius={3} class="secondcircle" fill="tomato" />
       <Circle radius={2} class="secondcircle" fill="white" />
