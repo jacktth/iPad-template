@@ -19,18 +19,15 @@ type ClockFaceProps = {
 };
 
 export const ClockFace: Component<ClockFaceProps> = (props) => (
-  <svg viewBox="0 0 200 200" width="40%">
+  <svg viewBox="0 0 200 200" width="20%">
     <g transform="translate(100, 100)">
       {/* static */}
-      <circle
-        class="text-neutral-900"
-        r="99"
-        fill="white"
-        stroke="currentColor"
-      />
+      <circle r="99" fill="white" stroke="currentColor" />
+      <Digtals numberOfDigtals={12} radius={99} />
+
       <Lines numberOfLines={60} class="subsecond" length={2} width={1} />
+
       <Lines numberOfLines={12} class="hour" length={5} width={2} />
-      <Digtals numberOfDigtals={12} />
       {/* dynamic */}
       <Hand
         rotate={props.hour}
